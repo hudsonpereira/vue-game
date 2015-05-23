@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>The Vue Game</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+	</head>
+	<body>
+
+		<div class="container">
+			<h1 class="page-header">Hey, here you are.</h1>
+
+			<div id="status-pane">
+				<table class="table table-stripped table-bordered">
+					<tr>
+						<th>Name</th>
+						<td><a v-on="click: setName">{{ name ? name : 'click here to set a name'}}</a>, level {{ workLevel }}</td>
+
+						<td colspan="2">
+							<button class="btn btn-primary" v-on="click: work">Work for yourself</button>
+						</td>
+					</tr>
+
+					<tr>
+						<th>Income</th>
+						<td>
+							${{ getIncome() }} per second.
+						</td>
+
+						<th>Money</th>
+						<td>${{ money }}</td>
+					</tr>
+
+					<tr>
+						<th colspan="2">
+							Workers
+						</th>
+
+						<th colspan="2">
+							Inventory
+						</th>
+					</tr>
+
+					<tr>
+						<td>Slaves ({{ slaves }})</td>
+						<td>
+							<button class="btn btn-primary" v-on="click: buySlave">Buy (${{ getSlaveCost() }})</button>
+						</td>
+
+						<td colspan="2">
+							<button class="btn btn-primary" v-on="click: upgradeWorkLevel">Upgrade your work (${{ getWorkUpgradeCost() }})</button>
+						</td>
+					</tr>
+
+				</table>
+			</div>
+
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
